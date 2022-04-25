@@ -1,0 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300&family=Titillium+Web:wght@300&display=swap');
+body{
+    background-color: #EFFFFD;
+    margin:0;
+}
+h1,h2,h3,h4,h5,h6,p,a{
+    color:#533E85;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: normal;
+}
