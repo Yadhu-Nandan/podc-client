@@ -1,62 +1,36 @@
 <script>
-  import { addArticle } from "../../services/article";
+  import { addMember } from "../services/member";
 
-  export let title;
-  export let content;
-  export let author;
   export let operation;
-  export const open = false;
+  export let name;
+  export let eid;
+  export let role;
+  export let joiningDate;
 
-  async function addarticle(title, content, author) {
-    const res = await addArticle(title, content,author);
-    console.log(res);
+  async function addmember(name, eid, role, joiningDate) {
+    const res = await addMember(name, role, eid, joiningDate);
+  }
+  async function editmember(name, eid, role, joiningDate) {
+    const res = await addMember(name, role, eid, joiningDate);
   }
 </script>
 
 <div class="card">
   {#if operation}
-    <h2>Add new article</h2>
+    <h2>Add new member</h2>
   {:else}
-    <h2>Edit article</h2>
+    <h2>Edit Member</h2>
   {/if}
   <hr />
-  <label for="title">Title</label>
-  <input
-    type="text"
-    bind:value={title}
-    name="title"
-    class="newatricleinput"
-    id=""
-    placeholder="Title"
-  />
-  <label for="author">Author</label>
-  <input
-    type="text"
-    bind:value={author}
-    name="auhtor"
-    class="newatricleinput"
-    id=""
-    placeholder="Author"
-  />
-  <label for="content">Content</label>
-  <textarea
-    bind:value={content}
-    class="newatricleinput"
-    name="content"
-    placeholder="Content"
-  />
+  <input type="text" bind:value={name} name="name" class="newmemberinput" id="" placeholder="Name" />
+  <input bind:value={eid} class="newmemberinput" name="eid" placeholder="Employee ID" />
+  <input type="text" class="newmemberinput" name="role" bind:value={role} placeholder="Role" />
+  <input type="date" class="newmemberinput" name="joining-date" bind:value={joiningDate} placeholder="Joining Date" />
   {#if operation}
-  <button
-    class="button-65"
-    on:click={async () => addarticle(title, content, author)}>Add</button
-  >
-{:else}
-<button
-class="button-65"
-on:click={async () => addarticle(title, content, author)}>Edit</button
->
-{/if}
-  
+    <button class="button-65" on:click={async () => addmember(name, eid, role, joiningDate)}>Add</button >
+  {:else}
+    <button class="button-65" on:click={async () => editmember(name, eid, role, joiningDate)} >Edit</button >
+  {/if}
 </div>
 
 <style>
@@ -70,14 +44,18 @@ on:click={async () => addarticle(title, content, author)}>Edit</button
     margin-bottom: 20px;
     margin-left: 25%;
   }
-  .newatricleinput {
+  .newmemberinput {
     margin: 10px;
+    width: 30%;
+    border: 0.1;
+    margin-left: 35%;
   }
   .button-65 {
+    height: 30px;
     appearance: none;
     backface-visibility: hidden;
     background-color: #2f80ed;
-    margin: 0 100px;
+    margin: 0 150px;
     border-radius: 10px;
     border-style: none;
     box-shadow: none;
@@ -94,7 +72,7 @@ on:click={async () => addarticle(title, content, author)}>Edit</button
     line-height: 1.5;
     outline: none;
     overflow: hidden;
-    padding: 14px 30px;
+    padding: 1px 30px;
     position: relative;
     text-align: center;
     text-decoration: none;

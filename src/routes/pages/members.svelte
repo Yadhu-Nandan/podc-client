@@ -47,7 +47,7 @@
 
 <div class="members">
   {#if open}
-    <MemberCard {name} {eid} {role} {joiningDate} {operation} />
+    <MemberCard {name} {eid} {role} {joiningDate} {operation}  />
     <button
       class="button-65"
       on:click={() => {
@@ -115,7 +115,7 @@
     color: white;
     border-radius: 0 0 10px 10px;
     border: 0;
-    margin: 0;
+    margin: 10px;
   }
   .memberbutton:hover {
     background-color: #85b2ee;
