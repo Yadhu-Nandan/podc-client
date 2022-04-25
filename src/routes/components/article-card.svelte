@@ -8,7 +8,7 @@
   export const open = false;
 
   async function addarticle(title, content, author) {
-    const res = await addArticle(title, content);
+    const res = await addArticle(title, content,author);
     console.log(res);
   }
 </script>
@@ -45,11 +45,18 @@
     name="content"
     placeholder="Content"
   />
-
+  {#if operation}
   <button
     class="button-65"
     on:click={async () => addarticle(title, content, author)}>Add</button
   >
+{:else}
+<button
+class="button-65"
+on:click={async () => addarticle(title, content, author)}>Edit</button
+>
+{/if}
+  
 </div>
 
 <style>

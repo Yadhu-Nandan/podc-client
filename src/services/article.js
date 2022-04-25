@@ -27,9 +27,9 @@ export const getArticle = async (id) => {
   }
 };
 
-export const addArticle = async (title,content) => {
+export const addArticle = async (title,content,author) => {
   try {
-    const response = await API.post("/addarticle",{'title':title});
+    const response = await API.post("/addarticle",{'title':title,'content':content,'author':author});
     return response;
   } catch (error) {
     console.error(error);

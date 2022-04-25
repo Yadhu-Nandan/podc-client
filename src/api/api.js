@@ -10,7 +10,6 @@ const axiosAPI = axios.create(
 const apiRequest = (method, url, request) => {
   
     const headers = {
-        authorization: ""
     };
     return axiosAPI({
         method,
