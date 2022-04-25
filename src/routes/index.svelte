@@ -2,7 +2,7 @@
     import Time from "svelte-time";
     import { getArticles,deleteArticle,getArticle, } from "../services/article";
     import { onMount } from "svelte";
-    import Articlecard from "./components/article-card.svelte";
+    import Articlecard from "../components/article-card.svelte";
 
     $: articles = [];
     $: open = false;

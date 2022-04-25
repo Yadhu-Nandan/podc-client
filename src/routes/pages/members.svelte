@@ -1,7 +1,7 @@
 <script>
   import { getMembers, deleteMember, getMember } from "../../services/member";
   import { onMount } from "svelte";
-  import MemberCard from "../components/member-card.svelte";
+  import MemberCard from "../../components/member-card.svelte";
 
   $: members = [];
   let member;
